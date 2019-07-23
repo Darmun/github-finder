@@ -13,7 +13,8 @@ class App extends Component {
     users: [],
     user: {},
     loading: false,
-    alert: null
+    alert: null,
+    repos: []
   };
 
   // async componentDidMount() {
@@ -90,13 +91,13 @@ class App extends Component {
       }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
     this.setState({
-      user: res.data,
+      repos: res.data,
       loading: false
     });
   };
 
   render() {
-    const { loading, users, user } = this.state;
+    const { loading, users, user, repos } = this.state;
     return (
       <Router>
         <div className="App">
@@ -127,7 +128,9 @@ class App extends Component {
                   <User
                     {...props}
                     getUser={this.getUser}
+                    getUserRepos={this.getUserRepos}
                     user={user}
+                    repos={repos}
                     loading={loading}
                   />
                 )}
