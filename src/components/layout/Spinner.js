@@ -8,7 +8,6 @@ const Spinner = props => (
       alt="loading..."
       style={{ width: 200, margin: "auto", display: "block" }}
     />
-    >
   </Fragment>
 );
 
